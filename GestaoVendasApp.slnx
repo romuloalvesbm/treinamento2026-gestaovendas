@@ -1,5 +1,9 @@
 <Solution>
-  <Folder Name="/Itens de Solução/">
-    <File Path="TextFile1.txt" />
+  <Folder Name="/1 - Domain/">
+    <Project Path="GestaoVendas.Domain/GestaoVendas.Domain.csproj" Id="fccb568b-0a3b-4b42-b140-562772f643db" />
   </Folder>
+  <Folder Name="/2 - Adapters/" />
+  <Folder Name="/2 - Adapters/Primary/" />
+  <Folder Name="/2 - Adapters/Secondary/" />
+  <Folder Name="/Itens de Solução/" />
 </Solution>
