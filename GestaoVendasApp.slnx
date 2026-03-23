@@ -4,6 +4,7 @@
   </Folder>
   <Folder Name="/2 - Adapters/" />
   <Folder Name="/2 - Adapters/Primary/" />
-  <Folder Name="/2 - Adapters/Secondary/" />
-  <Folder Name="/Itens de Solução/" />
+  <Folder Name="/2 - Adapters/Secondary/">
+    <Project Path="GestaoVendas.Infra.Data/GestaoVendas.Infra.Data.csproj" Id="09f7f740-9af7-4ab0-ace2-4da909a976aa" />
+  </Folder>
 </Solution>

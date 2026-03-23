@@ -32,7 +32,7 @@ A solução foi construída com:
 
 
 
-\- .NET 8+
+\- .NET 10
 
 \- Entity Framework Core
 
@@ -67,6 +67,4 @@ A solução foi construída com:
 \### ✔️ Unit of Work
 
 Gerencia transações garantindo consistência:
-
-
 
