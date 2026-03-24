@@ -3,8 +3,13 @@
     <Project Path="GestaoVendas.Domain/GestaoVendas.Domain.csproj" Id="fccb568b-0a3b-4b42-b140-562772f643db" />
   </Folder>
   <Folder Name="/2 - Adapters/" />
-  <Folder Name="/2 - Adapters/Primary/" />
+  <Folder Name="/2 - Adapters/Primary/">
+    <Project Path="GestaoVendas.API/GestaoVendas.API.csproj" Id="2c1e049b-3233-4bc4-b4c4-e4da4bcc0bea" />
+  </Folder>
   <Folder Name="/2 - Adapters/Secondary/">
     <Project Path="GestaoVendas.Infra.Data/GestaoVendas.Infra.Data.csproj" Id="09f7f740-9af7-4ab0-ace2-4da909a976aa" />
+  </Folder>
+  <Folder Name="/Itens de Solução/">
+    <File Path="docker-compose.yml" />
   </Folder>
 </Solution>

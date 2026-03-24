@@ -1,0 +1,66 @@
+
+services:
+
+  gestaovendas_api:
+    build:
+      context: .
+      dockerfile: GestaoVendas.API/Dockerfile
+    container_name: gestaovendas_api
+    depends_on:
+      - gestaovendas_sqlserver
+      - gestaovendas_rabbitmq
+      - gestaovendas_seq
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "5000:8080"
+    networks:
+      - gestaovendas_net
+    restart: unless-stopped
+
+  gestaovendas_sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: gestaovendas_sqlserver
+    environment:
+      SA_PASSWORD: "Adx@2026"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1439:1433"
+    volumes:
+      - gestaovendas_sql_data:/var/opt/mssql
+    networks:
+      - gestaovendas_net
+    restart: unless-stopped
+
+  gestaovendas_rabbitmq:
+    image: rabbitmq:3-management
+    container_name: gestaovendas_rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"   
+    networks:
+      - gestaovendas_net
+    restart: unless-stopped
+
+  gestaovendas_seq:
+    image: datalust/seq:latest
+    container_name: gestaovendas_seq
+    ports:
+      - "8081:80"
+      - "5341:5341"
+    environment:
+      - ACCEPT_EULA=Y
+      - SEQ_FIRSTRUN_ADMINPASSWORD=Adx@2025
+    volumes:
+      - gestaovendas_seq_data:/data
+    networks:
+      - gestaovendas_net
+    restart: unless-stopped
+
+volumes:
+  gestaovendas_sql_data:
+  gestaovendas_seq_data:
+
+networks:
+  gestaovendas_net:
+    driver: bridge
