@@ -11,7 +11,7 @@ services:
       - gestaovendas_rabbitmq
       - gestaovendas_seq
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Homologation
     ports:
       - "5000:8080"
     networks:
