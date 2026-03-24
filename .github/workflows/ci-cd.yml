@@ -5,6 +5,22 @@ on:
     branches: [ "main" ]
 
 jobs:
+  
+   # 🧪 Job de TESTE (fictício por enquanto)
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Simular testes
+        run: |
+          echo "Rodando testes..."
+          sleep 3
+          echo "Testes passaram com sucesso!"
+
+  # 🐳 Build e Push da imagem
   build-and-push:
     runs-on: ubuntu-latest
 
