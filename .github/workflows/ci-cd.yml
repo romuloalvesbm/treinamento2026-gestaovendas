@@ -6,7 +6,7 @@ on:
 
 jobs:
   
-   # 🧪 Job de TESTE (fictício por enquanto)
+   # Job de TESTE (fictício por enquanto)
   test:
     runs-on: ubuntu-latest
 
@@ -20,9 +20,10 @@ jobs:
           sleep 3
           echo "Testes passaram com sucesso!"
 
-  # 🐳 Build e Push da imagem
+  # Build e Push da imagem
   build-and-push:
     runs-on: ubuntu-latest
+    needs: test  # só executa se o teste passar
 
     steps:
       - name: Checkout código
