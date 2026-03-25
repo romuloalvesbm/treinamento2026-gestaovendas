@@ -68,3 +68,9 @@ A solução foi construída com:
 
 Gerencia transações garantindo consistência:
 
+
+
+\### ✔️ Swagger \& Versionamento
+
+A API possui documentação via \*\*Swagger\*\*, com suporte a \*\*versionamento\*\* para facilitar a manutenção e comunicação entre diferentes versões.
+
