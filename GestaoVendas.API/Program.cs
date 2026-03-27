@@ -1,4 +1,5 @@
 using GestaoVendas.API.Extensions;
+using GestaoVendas.API.Middlewares;
 using GestaoVendas.Domain.Extensions;
 using GestaoVendas.Infra.Data.Extensions;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
@@ -21,6 +22,8 @@ var app = builder.Build();
 app.MapOpenApi();
 
 app.UseSwaggerDoc();
+
+app.UseMiddleware<GlobalExceptionMiddleware>();
 
 app.UseAuthentication();
 app.UseAuthorization();

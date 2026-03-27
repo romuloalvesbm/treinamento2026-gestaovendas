@@ -31,9 +31,9 @@ namespace GestaoVendas.API.Extensions
                     )
                 };
             });
-
+                       
+            services.Configure<JwtTokenSettings>(configuration.GetSection("JwtTokenSettings"));
             services.AddSingleton<JwtTokenHelper>();
-            services.Configure<JwtTokenSettings>(configuration.GetSection("JwtTokenSettings"));            
 
             return services;
         }

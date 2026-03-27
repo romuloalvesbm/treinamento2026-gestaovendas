@@ -1,4 +1,6 @@
-﻿using GestaoVendas.API.Helpers;
+﻿using GestaoVendas.API.Common;
+using GestaoVendas.API.Helpers;
+using GestaoVendas.Domain.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,9 +15,9 @@ namespace GestaoVendas.API.Controllers
     {
         [HttpPost]
         [MapToApiVersion("1.0")]        
-        public IActionResult Post([FromBody] string nome)
+        public IActionResult Post([FromBody] UsuarioIn user)
         {  
-            return Ok(jwtTokenHelper.GenerateToken("Romulo", "romulo@gmail.com"));
+            return Ok(ApiResponse<string>.Ok(jwtTokenHelper.GenerateToken(user.Email, user.Email)));
         }
 
     }
