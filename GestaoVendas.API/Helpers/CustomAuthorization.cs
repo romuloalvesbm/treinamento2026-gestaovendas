@@ -10,7 +10,7 @@ namespace GestaoVendas.API.Helpers
         {
 
             return context.User.Identity != null && context.User.Identity.IsAuthenticated &&
-                   context.User.Claims.Any(c => c.Type == claimName && c.Value.Contains(claimValue));
+                   context.User.Claims.Any(c => c.Type == claimName && c.Value == claimValue);
 
         }
     }
