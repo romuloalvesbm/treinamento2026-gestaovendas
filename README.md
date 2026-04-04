@@ -22,6 +22,8 @@ A solução foi construída com:
 
 \- Serilog (logging estruturado)
 
+\- Mapster (mapeamento de objetos)
+
 
 
 \---
@@ -44,6 +46,8 @@ A solução foi construída com:
 
 \- Docker (opcional)
 
+\- Mapster
+
 
 
 \---
@@ -56,21 +60,27 @@ A solução foi construída com:
 
 \### ✔️ Arquitetura Hexagonal
 
-\- Domínio isolado
+\- Domínio isolado  
 
-\- Comunicação via interfaces (ports)
+\- Comunicação via interfaces (ports)  
 
-\- Infraestrutura como adaptadores
+\- Infraestrutura como adaptadores  
 
 
 
 \### ✔️ Unit of Work
 
-Gerencia transações garantindo consistência:
+Gerencia transações garantindo consistência  
 
 
 
 \### ✔️ Swagger \& Versionamento
 
-A API possui documentação via \*\*Swagger\*\*, com suporte a \*\*versionamento\*\* para facilitar a manutenção e comunicação entre diferentes versões.
+A API possui documentação via Swagger, com suporte a versionamento para facilitar a manutenção e comunicação entre diferentes versões  
+
+
+
+\### ✔️ Mapster
+
+Utilizado para mapeamento entre objetos (DTOs e entidades), reduzindo código e melhorando a performance na conversão de dados
 
