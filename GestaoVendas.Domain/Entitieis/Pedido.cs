@@ -1,4 +1,5 @@
 ﻿using GestaoVendas.Domain.Exceptions;
+using GestaoVendas.Domain.Exceptions.Base;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -44,15 +45,20 @@ namespace GestaoVendas.Domain.Entitieis
 
         private void Validate() 
         {
-            if (ClienteId < 0)
+            var errors = new List<string>();
+
+            if (ClienteId <= 0)
             {
-                throw new ClienteNaoEncontradoException();
+                errors.Add("Pedido não encontrado");
             }
 
             if (Valor < 0)
             {
-                throw new Exception("Valor inválido.");
+                errors.Add("Valor inválido.");
             }
+
+            if (errors.Any())
+                throw new DomainValidationException(errors);
         }
     }
 }

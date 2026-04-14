@@ -45,9 +45,8 @@ services:
   gestaovendas_seq:
     image: datalust/seq:latest
     container_name: gestaovendas_seq
-    ports:
-      - "8081:80"
-      - "5341:5341"
+    ports:     
+      - "5342:80"
     environment:
       - ACCEPT_EULA=Y
       - SEQ_FIRSTRUN_ADMINPASSWORD=Adx@2025

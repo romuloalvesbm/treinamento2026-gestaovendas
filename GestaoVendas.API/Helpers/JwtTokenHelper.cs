@@ -56,7 +56,7 @@ namespace GestaoVendas.API.Helpers
             };
 
             //permissoes
-            string[] permissoes = ["GetAll"];
+            string[] permissoes = ["GetAll", "GetbyId", "CreateCliente", "UpdateCliente", "InactiveCliente"];
 
             foreach (var item in permissoes)
             {
