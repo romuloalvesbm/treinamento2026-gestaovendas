@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace GestaoVendas.Domain.Entitieis
+namespace GestaoVendas.Domain.Entities
 {
     public class Pedido
     {
@@ -45,7 +45,7 @@ namespace GestaoVendas.Domain.Entitieis
         {
             var errors = new List<string>();
                        
-            if (Valor < 0)
+            if (Valor <= 0)
             {
                 errors.Add("Valor inválido.");
             }

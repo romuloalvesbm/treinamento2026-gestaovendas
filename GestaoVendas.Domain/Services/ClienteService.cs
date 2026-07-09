@@ -1,4 +1,4 @@
-﻿using GestaoVendas.Domain.Entitieis;
+﻿using GestaoVendas.Domain.Entities;
 using GestaoVendas.Domain.Exceptions;
 using GestaoVendas.Domain.Exceptions.Base;
 using GestaoVendas.Domain.Models;

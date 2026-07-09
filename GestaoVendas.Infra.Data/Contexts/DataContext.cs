@@ -1,4 +1,4 @@
-﻿using GestaoVendas.Domain.Entitieis;
+﻿using GestaoVendas.Domain.Entities;
 using GestaoVendas.Infra.Data.Mappings;
 using Microsoft.EntityFrameworkCore;
 using System;

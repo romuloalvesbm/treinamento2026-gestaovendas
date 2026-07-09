@@ -1,4 +1,4 @@
-﻿using GestaoVendas.Domain.Entitieis;
+﻿using GestaoVendas.Domain.Entities;
 using GestaoVendas.Domain.Models;
 using Mapster;
 using System;

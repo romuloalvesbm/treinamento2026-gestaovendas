@@ -1,4 +1,4 @@
-﻿using GestaoVendas.Domain.Entitieis;
+﻿using GestaoVendas.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;

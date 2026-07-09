@@ -1,4 +1,4 @@
-﻿using GestaoVendas.Domain.Entitieis;
+﻿using GestaoVendas.Domain.Entities;
 using GestaoVendas.Domain.Ports.Repositories;
 using GestaoVendas.Infra.Data.Contexts;
 using Microsoft.EntityFrameworkCore;

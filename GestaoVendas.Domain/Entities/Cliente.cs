@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace GestaoVendas.Domain.Entitieis
+namespace GestaoVendas.Domain.Entities
 {
     public class Cliente
     {
