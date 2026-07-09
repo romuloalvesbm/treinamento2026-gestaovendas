@@ -13,30 +13,28 @@ namespace GestaoVendas.Domain.Entitieis
         public decimal Valor { get; private set; }
         public bool Ativo { get; private set; } = false;
 
-        public Cliente Cliente { get; private set; } = new Cliente();
+        public Cliente? Cliente { get; private set; }
 
         public Pedido()
         {
             
         }
 
-        private Pedido(int clienteId, decimal valor, bool ativo) 
-        {
-            ClienteId = clienteId;
+        private Pedido(decimal valor, bool ativo) 
+        {           
             Valor = valor;
             Ativo = ativo;
 
             Validate();
         }
 
-        public static Pedido Create(int clienteId, decimal valor, bool ativo)
+        public static Pedido Create(decimal valor, bool ativo)
         {
-            return new Pedido(clienteId, valor, ativo);
+            return new Pedido(valor, ativo);
         }
 
-        public void Update(int clienteId, decimal valor, bool ativo) 
-        {
-            ClienteId = clienteId;
+        public void Update(decimal valor, bool ativo) 
+        {            
             Valor = valor;
             Ativo = ativo;
 
@@ -46,12 +44,7 @@ namespace GestaoVendas.Domain.Entitieis
         private void Validate() 
         {
             var errors = new List<string>();
-
-            if (ClienteId <= 0)
-            {
-                errors.Add("Pedido não encontrado");
-            }
-
+                       
             if (Valor < 0)
             {
                 errors.Add("Valor inválido.");

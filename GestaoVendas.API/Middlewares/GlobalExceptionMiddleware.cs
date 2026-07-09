@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using GestaoVendas.API.Common;
 using GestaoVendas.Domain.Exceptions;
+using GestaoVendas.Domain.Exceptions.Base;
 using System.Net;
 using System.Text.Json;
 
@@ -46,6 +47,12 @@ namespace GestaoVendas.API.Middlewares
                     statusCode = HttpStatusCode.BadRequest;
                     message = "Erro de validação";
                     errors = validationEx.Errors.Select(e => e.ErrorMessage);
+                    break;
+
+                case DomainValidationException validationEx:
+                    statusCode = HttpStatusCode.BadRequest;
+                    message = "Erro de validação";
+                    errors = validationEx.Errors;
                     break;
 
                 default:
