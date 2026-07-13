@@ -43,7 +43,7 @@ builder.Services.AddFluentValidationAutoValidation()
                 .AddFluentValidationClientsideAdapters();
 
 //Configuração para geração dos LOGS
-builder.Logging.ClearProviders(); //
+builder.Logging.ClearProviders(); 
 builder.Host.UseSerilog((context, config) =>
 {
     config

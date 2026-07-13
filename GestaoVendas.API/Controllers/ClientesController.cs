@@ -17,7 +17,10 @@ namespace GestaoVendas.API.Controllers
     [ApiController]
     public class ClientesController(IClienteService clienteService, ILogger<ClientesController> logger) : ControllerBase
     {
-        [ClaimsAuthorize("CustomizePermission", "GetAll")]
+        // AVISO: [ClaimsAuthorize] é um modelo antigo de autorização customizada.
+        // Recomenda-se usar [Authorize(Policy = "GetbyId")] ao invés.
+        //[ClaimsAuthorize("CustomizePermission", "GetAll")]
+        [Authorize(Policy = "Cliente.GetAll")]
         [HttpGet]
         [MapToApiVersion("1.0")]
         [ProducesResponseType(typeof(List<ClienteOut>), 200)]
@@ -28,7 +31,10 @@ namespace GestaoVendas.API.Controllers
 
         }
 
-        [ClaimsAuthorize("CustomizePermission", "GetbyId")]
+        // AVISO: [ClaimsAuthorize] é um modelo antigo de autorização customizada.
+        // Recomenda-se usar [Authorize(Policy = "GetbyId")] ao invés.
+        //[ClaimsAuthorize("CustomizePermission", "Cliente.GetbyId")]
+        [Authorize(Policy = "Cliente.GetbyId")]
         [HttpGet("{id}")]
         [MapToApiVersion("1.0")]
         [ProducesResponseType(typeof(ClienteOut), 200)]
@@ -38,7 +44,10 @@ namespace GestaoVendas.API.Controllers
 
         }
 
-        [ClaimsAuthorize("CustomizePermission", "CreateCliente")]
+        // AVISO: [ClaimsAuthorize] é um modelo antigo de autorização customizada.
+        // Recomenda-se usar [Authorize(Policy = "CreateCliente")] ao invés.
+        //[ClaimsAuthorize("CustomizePermission", "CreateCliente")]
+        [Authorize(Policy = "Cliente.Create")]
         [HttpPost]
         [MapToApiVersion("1.0")]
         [ProducesResponseType(typeof(ClienteOut), 200)]
@@ -49,7 +58,10 @@ namespace GestaoVendas.API.Controllers
             return Ok(ApiResponse<ClienteOut?>.Ok(result)); 
         }
 
-        [ClaimsAuthorize("CustomizePermission", "UpdateCliente")]
+        // AVISO: [ClaimsAuthorize] é um modelo antigo de autorização customizada.
+        // Recomenda-se usar [Authorize(Policy = "UpdateCliente")] ao invés.
+        //[ClaimsAuthorize("CustomizePermission", "UpdateCliente")]
+        [Authorize(Policy = "Cliente.Update")]
         [HttpPut("{id}")]
         [MapToApiVersion("1.0")]
         [ProducesResponseType(typeof(ClienteOut), 200)]
@@ -60,7 +72,10 @@ namespace GestaoVendas.API.Controllers
             return Ok(ApiResponse<ClienteOut?>.Ok(result));
         }
 
-        [ClaimsAuthorize("CustomizePermission", "InactiveCliente")]
+        // AVISO: [ClaimsAuthorize] é um modelo antigo de autorização customizada.
+        // Recomenda-se usar [Authorize(Policy = "InactiveCliente")] ao invés.
+        //[ClaimsAuthorize("CustomizePermission", "InactiveCliente")]
+        [Authorize(Policy = "Cliente.Inactive")]
         [HttpDelete("{id}")]
         [MapToApiVersion("1.0")]
         [ProducesResponseType(typeof(ClienteOut), 200)]
@@ -72,7 +87,10 @@ namespace GestaoVendas.API.Controllers
         }
 
 
-        [ClaimsAuthorize("CustomizePermission", "GetAll2")]
+        // AVISO: [ClaimsAuthorize] é um modelo antigo de autorização customizada.
+        // Recomenda-se usar [Authorize(Policy = "...")] ao invés. (Policy "GetAll2" não está registrada)
+        //[ClaimsAuthorize("CustomizePermission", "GetAll2")]
+        [Authorize(Policy = "Cliente.GetAll2")]
         [HttpGet("obter-todos")]
         [MapToApiVersion("2.0")]
         [ProducesResponseType(typeof(List<ClienteOut>), 200)]

@@ -43,20 +43,14 @@ namespace GestaoVendas.API.Middlewares
                     message = ex.Message;
                     break;
 
-                case ValidationException validationEx:
+                case Exception validationEx when validationEx is ValidationException or DomainValidationException:
                     statusCode = HttpStatusCode.BadRequest;
                     message = "Erro de validação";
-                    errors = validationEx.Errors.Select(e => e.ErrorMessage);
-                    break;
-
-                case DomainValidationException validationEx:
-                    statusCode = HttpStatusCode.BadRequest;
-                    message = "Erro de validação";
-                    errors = validationEx.Errors;
+                    errors = GetValidationErrors(validationEx);
                     break;
 
                 default:
-                    errors = ["Ocorreu um erro interno no servidor."];                    
+                    errors = ["Ocorreu um erro interno no servidor."];
                     logger.LogError(ex, "Erro inesperado: {Message}", ex.Message);
                     break;
             }
@@ -67,5 +61,13 @@ namespace GestaoVendas.API.Middlewares
 
             await context.Response.WriteAsync(JsonSerializer.Serialize(response));
         }
+
+        private static IEnumerable<string> GetValidationErrors(Exception exception) =>
+        exception switch
+        {
+            ValidationException ex => ex.Errors.Select(e => e.ErrorMessage),
+            DomainValidationException ex => ex.Errors,
+            _ => []
+        };
     }
 }

@@ -4,6 +4,21 @@ using System.Security.Claims;
 
 namespace GestaoVendas.API.Helpers
 {
+    /// <summary>
+    /// ⚠️ AVISO: Modelo Legado de Autorização
+    /// Esta implementação customizada de autorização está obsoleta.
+    /// 
+    /// RECOMENDAÇÃO: Use o modelo nativo do ASP.NET Core com AddPolicy e [Authorize(Policy = "...")].
+    /// 
+    /// Motivos para migração:
+    /// - Padrão oficial do .NET
+    /// - Melhor testabilidade e manutenibilidade
+    /// - Suporte a cenários complexos (múltiplas claims, roles, requirements)
+    /// - Melhor integração com Swagger/OpenAPI
+    /// - Centralização das políticas de autorização
+    /// 
+    /// As policies já estão configuradas em JwtBearerExtension.cs
+    /// </summary>
     public class CustomAuthorization
     {
         public static bool ValidarClaimsUsuario(HttpContext context, string claimName, string claimValue)

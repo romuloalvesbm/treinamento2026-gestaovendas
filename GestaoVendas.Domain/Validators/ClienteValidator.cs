@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 using GestaoVendas.Domain.Models;
-using GestaoVendas.Domain.Validators.Common;
+using GestaoVendas.Domain.Validators.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Runtime.ConstrainedExecution;
@@ -13,7 +13,7 @@ namespace GestaoVendas.Domain.Validators
         public ClienteValidator()
         {
             RuleFor(c => c.Nome)
-                .NotEmpty().WithMessage("O nome do cliente é obrigatrio")
+                .NotEmpty().WithMessage("O nome do cliente é obrigatório")
                 .Length(3, 100).WithMessage("O nome deve ter entre 3 e 100 caracteres.");
 
             RuleFor(c => c.Email)
@@ -22,7 +22,7 @@ namespace GestaoVendas.Domain.Validators
                 .MaximumLength(150).WithMessage("O email deve ter no máximo 150 caracteres.");
 
             RuleFor(x => x.Cpf)
-                .NotEmpty().WithMessage("O cpf do cliente é obrigatrio")
+                .NotEmpty().WithMessage("O CPF do cliente é obrigatório")
                 .IsCpf();
         }
     }

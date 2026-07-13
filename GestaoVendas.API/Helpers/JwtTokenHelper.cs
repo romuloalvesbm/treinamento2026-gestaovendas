@@ -56,12 +56,15 @@ namespace GestaoVendas.API.Helpers
             };
 
             //permissoes
-            string[] permissoes = ["GetAll", "GetbyId", "CreateCliente", "UpdateCliente", "InactiveCliente"];
+            string[] permissoes = ["Cliente.GetAll", "Cliente.GetById", "Cliente.Create", "Cliente.Update", "Cliente.Inactive"];
 
-            foreach (var item in permissoes)
-            {
-                claims.Add(new Claim("CustomizePermission", item));
-            }
+            // AVISO: [ClaimsAuthorize] é um modelo antigo de autorização customizada.           
+            //foreach (var item in permissoes)
+            //{
+            //    claims.Add(new Claim("CustomizePermission", item));
+            //}
+
+            claims.AddRange(permissoes.Select(p => new Claim("CustomizePermission", p)));
 
             return claims;
                     

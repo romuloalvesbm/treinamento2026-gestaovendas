@@ -31,7 +31,28 @@ namespace GestaoVendas.API.Extensions
                     )
                 };
             });
-                       
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Cliente.GetAll", policy =>
+                    policy.RequireClaim("CustomizePermission", "Cliente.GetAll"));
+
+                options.AddPolicy("Cliente.GetbyId", policy =>
+                    policy.RequireClaim("CustomizePermission", "Cliente.GetbyId"));
+
+                options.AddPolicy("Cliente.Create", policy =>
+                    policy.RequireClaim("CustomizePermission", "Cliente.Create"));
+
+                options.AddPolicy("Cliente.Update", policy =>
+                    policy.RequireClaim("CustomizePermission", "Cliente.Update"));
+
+                options.AddPolicy("Cliente.Inactive", policy =>
+                    policy.RequireClaim("CustomizePermission", "Cliente.Inactive"));
+
+                options.AddPolicy("Cliente.GetAll2", policy =>
+                    policy.RequireClaim("CustomizePermission", "Cliente.GetAll2"));
+            });
+
             services.Configure<JwtTokenSettings>(configuration.GetSection("JwtTokenSettings"));
             services.AddSingleton<JwtTokenHelper>();
 

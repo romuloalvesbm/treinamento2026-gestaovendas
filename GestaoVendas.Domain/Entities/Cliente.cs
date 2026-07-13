@@ -100,7 +100,7 @@ namespace GestaoVendas.Domain.Entities
                 errors.Add("Email inválido.");
             }
 
-            if (string.IsNullOrEmpty(Cpf) || !CpfValidator.IsValid(Cpf) || Cpf.Length != 11) 
+            if (string.IsNullOrEmpty(Cpf) || !CpfValidator.IsValid(Cpf)) 
             {
                 errors.Add("Cpf inválido.");
             }
